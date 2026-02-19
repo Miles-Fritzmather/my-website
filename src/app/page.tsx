@@ -1,11 +1,13 @@
 "use client";
 
-import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { useLayoutEffect } from "react";
 
 const Page = () => {
-  useEffect(() => {
-    window.location.href = window.location.href.replace(/\/$/, "") + "/about";
-  }, []);
+  const router = useRouter();
+  useLayoutEffect(() => {
+    router.push("/about");
+  }, [router]);
   return null;
 };
 
