@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 const Page = () => {
   useEffect(() => {
-    window.location.href = "./about";
+    window.location.href = window.location.href.replace(/\/$/, "") + "/about";
   }, []);
   return null;
 };
