@@ -1,7 +1,9 @@
-import { redirect } from "next/navigation";
+import { useEffect } from "react";
 
 const Page = () => {
-  redirect("/about");
+  useEffect(() => {
+    window.location.href = "/about";
+  }, []);
   return null;
 };
 
