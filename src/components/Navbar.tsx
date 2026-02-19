@@ -19,9 +19,9 @@ type NavItem = {
 const navItems: NavItem[] = [
   { label: "About Me", href: "/about" },
   { label: "Projects", href: "/projects" },
-  // { label: "Writing", href: "/blog" },
+  { label: "Writing", href: "/blog" },
   { label: "Contact", href: "/contact" },
-  // { label: "Playground", href: "/playground" },
+  { label: "Playground", href: "/playground" },
 ];
 
 // Memoize the Links component to prevent unnecessary rerenders

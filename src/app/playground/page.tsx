@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Container from "~/components/Container";
 import { FadeIn, FadeInText } from "~/components/fade-in";
 import { HStack, VStack } from "~/components/HelperDivs";
@@ -17,8 +17,15 @@ const BlogPage = () => {
 };
 
 const GradientControls = () => {
-  const { spawnRandomBlobWithPosition, spawnRandomBlob, entropy, setEntropy } =
-    useBackground();
+  const {
+    spawnRandomBlobWithPosition,
+    spawnRandomBlob,
+    entropy,
+    setEntropy,
+    resumeSimulation,
+    pauseSimulation,
+  } = useBackground();
+  const [paused, setPaused] = useState(false);
   const mousePosition = useMousePosition();
 
   useEffect(() => {
@@ -56,6 +63,19 @@ const GradientControls = () => {
         </button>
         <button onClick={() => setEntropy(entropy - 0.1)}>
           Decrease entropy
+        </button>
+
+        <button
+          onClick={() => {
+            if (paused) {
+              resumeSimulation();
+            } else {
+              pauseSimulation();
+            }
+            setPaused((prev) => !prev);
+          }}
+        >
+          {paused ? "Resume simulation" : "Pause simulation"}
         </button>
       </HStack>
     </Container>

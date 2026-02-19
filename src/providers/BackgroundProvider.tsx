@@ -281,6 +281,7 @@ export function BackgroundProvider(props: { children: React.ReactNode }) {
         blob.velocity.y -= force * ny * deltaTime;
         otherBlob.velocity.x += force * nx * deltaTime;
         otherBlob.velocity.y += force * ny * deltaTime;
+        //TODO: remove this
       });
 
       bounceFrameRef.current = requestAnimationFrame(bounceOffOthers);
