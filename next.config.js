@@ -5,6 +5,13 @@
 import "./src/env.js";
 
 /** @type {import("next").NextConfig} */
-const config = {};
+const config = {
+  output: "export",
+  // Custom domain (milesfm.me) is served from the site root, not /repo-name/.
+  basePath: "",
+  images: {
+    unoptimized: true,
+  },
+};
 
 export default config;
