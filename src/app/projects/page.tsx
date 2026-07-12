@@ -13,7 +13,6 @@ type Project = {
   title: string;
   description: string;
   tags: string[];
-  // summary: string;
   link?: string;
   startDate: Date;
 } & (
@@ -29,52 +28,55 @@ type Project = {
 
 const projects = [
   {
-    title: "Longhorn Developers",
-    link: "https://github.com/Longhorn-Developers",
+    title: "LHD Developer Fellow",
+    link: "https://github.com/Longhorn-Developers/Degree-Audit-Plus",
     description:
-      "This is a club at UT Austin that works to make the lives of students easier through open source technologies. Specifically, I am working on a new Chrome extension, Degree Audit Plus, that streamlines the degree audit process by integrating with the official degree audit tool and providing a more user-friendly interface.",
+      "Longhorn Devleopers (or LHD) is a club at UT Austin that works to make the lives of students easier through open source technologies. When I first joined the club, I worked on the Degree Audit Plus Team where I built a Chrome extension that streamlines the degree audit process by integrating with the official degree audit tool and providing a more user-friendly interface.",
     startDate: new Date("September 28, 2025"),
+    completedDate: new Date("May, 2025"),
     tags: [
       "Chrome extensions",
       "TypeScript",
       "React",
-      "Tailwind CSS",
       "Open Source",
       "WXT",
       "Collaborative",
       "Built for production",
     ],
-    status: "active",
+    status: "completed",
   },
   {
-    title: "Stock Bot",
+    title: "LHD Developer Lead",
+    link: "https://github.com/Longhorn-Developers/Spark-Plus",
     description:
-      "A fun project that me and two friends are working on as a first foray into the interesting (and scary) world of quant trading and algorithmic stock trading. The goal is to make a set of bots that can trade stocks in a simulated enviroment where we can test out different trading strategies and see how they perform, and then eventually deploy them to a real trading platform.",
-    startDate: new Date("October 1, 2025"),
-    tags: ["Pytholdn", "Web Scraping"],
-    status: "on-hold",
-  },
-  {
-    title: "Accutime",
-    link: "www.accutime.org",
-    description:
-      "This is a full company that I am building with a small group designed to allevaite the pain points of time tracking and project management for lawyers. The project would be a web page that would sync with a users various accounts, gather any relevant data about work they have done, and then turn it into a useable time sheet that the user could then look over and submit. The primary goal is to make the hardest part of the process, which is also the fist step of getting started, as easy as possible.",
-    startDate: new Date("February 23, 2025"),
+      "For my second semester at UT, I joined another team in LHD except this time as the Technical lead. Here I was working on building out extra tooling for UT's Enterprise AI tooling, Spark. As the tech lead I was responsible for organizing the team, designing the architecture, and also writing code along side the other developers.",
+    startDate: new Date("January, 2026"),
+    completedDate: new Date("May, 2025"),
     tags: [
-      "TypeScript",
-      "React",
-      "Tailwind CSS",
-      "Open Source",
-      "Full Stack Development",
-      "UI/UX Design",
-      "Machine Learning",
-      "AWS",
-      "PostHog",
-      "ShadCN",
+      "CloudFlare Workers",
+      "MCPs",
+      "AI",
       "Collaborative",
-      "Built for production",
+      "Enterprise Technolgy",
       "Leading a team",
-      "Legal",
+      "Architecture design",
+    ],
+    status: "completed",
+  },
+  {
+    title: "LHD SWE Director",
+    link: "https://github.com/Longhorn-Developers",
+    description:
+      "As of this summer, I have been promoted to the SWE Director of LHD. This means I am now responsible for overseeing the entire software engineering department of over 50 members across 13 teams. I am also responsible for helping recruit new members to all the teams, building out cross team collaboration and communication efforts, and monitoring the progress of all the teams along with code quality.",
+    startDate: new Date("May, 2026"),
+    tags: [
+      "Software Engineering",
+      "Collaborative",
+      "Leading a team",
+      "Architecture design",
+      "Project management",
+      "Recruiting",
+      "Communication",
     ],
     status: "active",
   },
@@ -84,8 +86,8 @@ const projects = [
     description:
       "This is a video game that I am building with a small group of people I met at the Game Worlds summer camp. The game is a top-down 2D adventur game where the player can explore a world and fight enemies.",
     startDate: new Date("June 14, 2024"),
+    status: "on-hold",
     tags: ["C#", "Unity", "Game Development", "Leading a team"],
-    status: "active",
   },
   {
     title: "BioBQ",
@@ -170,6 +172,41 @@ const projects = [
     ],
     status: "completed",
     completedDate: new Date("October 19, 2025"),
+  },
+  {
+    title: "Relay",
+    link: "https://relay-law.com",
+    description:
+      "This is a company I am starting to build entirely local AI servers for lawyers. The system is simple to set up and runs entirely on the lawyers own server we supply them with. The reason I wanted to make this is the legal industry currently has hundreds of AI tools for everything and anything, but none truly promise security and safety of the client's information to a degree we, or many lawyers, thought was necessary. With an entirely local system, we can ensure that the client's information is never sent to a third party and is always kept private and secure.",
+    startDate: new Date("January, 2026"),
+    tags: [
+      "Start Up",
+      "Full Stack Development",
+      "UI/UX Design",
+      "Collaborative",
+      "Tech Lead",
+      "AI",
+      "Legal",
+    ],
+    status: "active",
+  },
+  {
+    title: "JotIt",
+    // link: "https://milesfm.me/jotit",
+    description:
+      "This is a simple note taking app inspired by Raycast's floating notes feature. However, this one is actually free with unlimited notes, and is open source for people to use and contribute to. It's nothing crazy, but I love it and use it every day.",
+    startDate: new Date("June, 2026"),
+    tags: ["Tauri", "App Development", "Open Source", "Product"],
+    status: "active",
+  },
+  {
+    title: "WriteRight",
+    // link: "https://milesfm.me/write-right",
+    description:
+      "This is an iPad app for taking handwritten notes like GoodNotes, except the art style is meant to be like a real notebook. The design is inspired by the Apple Design Award Winner, Grug, which uses a handwritten style for all of its user interface.",
+    startDate: new Date("July, 2026"),
+    tags: ["iPad OS", "Product", "SwiftUI", "Open Source"],
+    status: "active",
   },
   // {
   //   title: "UT",

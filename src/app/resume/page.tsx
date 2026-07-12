@@ -37,7 +37,7 @@ const HeroBanner = () => {
           <h1 className="whitespace-nowrap text-6xl font-extrabold tracking-tight text-foreground/40">
             {`Take a look!`}
           </h1>
-          <BetterLink href="/Miles Fritzmather Resume.pdf" download>
+          <BetterLink href="/Miles Fritzmather's Resume.pdf" download>
             Download my résumé
           </BetterLink>
         </FadeIn>

@@ -1,14 +1,12 @@
-"use client";
+import AboutHero from "~/components/AboutHero";
+import { pageMetadata } from "~/lib/seo";
+import { SITE_TITLE } from "~/lib/site";
 
-import { useRouter } from "next/navigation";
-import { useLayoutEffect } from "react";
+export const metadata = pageMetadata({
+  absoluteTitle: SITE_TITLE,
+  path: "/",
+});
 
-const Page = () => {
-  const router = useRouter();
-  useLayoutEffect(() => {
-    router.push("/about");
-  }, [router]);
-  return null;
-};
-
-export default Page;
+export default function HomePage() {
+  return <AboutHero />;
+}

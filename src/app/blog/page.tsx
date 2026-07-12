@@ -1,9 +1,18 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import Container from "~/components/Container";
 import { HStack, VStack } from "~/components/HelperDivs";
 import Popup from "~/components/Popup";
 import { getAllPostsMetadata, type PostMetadata } from "~/lib/posts";
+import { pageMetadata } from "~/lib/seo";
+import { PERSON } from "~/lib/site";
 import HeroBanner from "./HeroBanner";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Writing",
+  description: `Articles and notes by ${PERSON.name} on software engineering, design, and building products.`,
+  path: "/blog",
+});
 
 const BlogPage = () => {
   return (
