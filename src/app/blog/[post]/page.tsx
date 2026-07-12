@@ -1,10 +1,12 @@
 import { ArrowLeft } from "lucide-react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Container from "~/components/Container";
 import { HStack, VStack } from "~/components/HelperDivs";
 import Popup from "~/components/Popup";
 import { getAllPostsMetadata, getPost } from "~/lib/posts";
+import { PERSON, SITE_URL } from "~/lib/site";
 
 export const dynamicParams = false;
 
@@ -16,6 +18,52 @@ export const generateStaticParams = async () => {
   const posts = await getAllPostsMetadata();
   return posts.map((post) => ({ post: post.filename }));
 };
+
+export async function generateMetadata({
+  params,
+}: {
+  params: PostPageProps;
+}): Promise<Metadata> {
+  const post = await getPost((await params).post);
+  if (!post) {
+    return { title: "Post not found" };
+  }
+
+  const title = post.title;
+  const description =
+    post.description || `${post.title} — an article by ${PERSON.name}.`;
+
+  return {
+    title,
+    description,
+    authors: [{ name: PERSON.name, url: SITE_URL }],
+    alternates: {
+      canonical: `/blog/${post.filename}`,
+    },
+    openGraph: {
+      type: "article",
+      url: `${SITE_URL}/blog/${post.filename}`,
+      title: `${title} | ${PERSON.name}`,
+      description,
+      authors: [PERSON.name],
+      publishedTime: post.date || undefined,
+      images: [
+        {
+          url: "/logo.png",
+          width: 512,
+          height: 512,
+          alt: PERSON.name,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary",
+      title: `${title} | ${PERSON.name}`,
+      description,
+      images: ["/logo.png"],
+    },
+  };
+}
 
 const PostPage = async ({ params }: { params: PostPageProps }) => {
   const post = await getPost((await params).post);
@@ -55,6 +103,12 @@ const PostPage = async ({ params }: { params: PostPageProps }) => {
               gap={8}
               className="text-sm font-medium uppercase tracking-[0.25em] text-foreground/50"
             >
+              <p>
+                By{" "}
+                <Link href="/" className="underline-offset-4 hover:underline">
+                  {PERSON.name}
+                </Link>
+              </p>
               <p>{formattedDate}</p>
               <p>{post.readTime} min read</p>
             </HStack>

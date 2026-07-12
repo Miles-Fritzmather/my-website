@@ -8,33 +8,33 @@ type Social = {
   icon: React.ElementType;
   link: string;
   download: boolean;
+  label: string;
 };
 
 const socials: Record<string, Social> = {
   github: {
     icon: FaGithub,
-    link: "https://github.com/FRAGt4g",
+    link: "https://github.com/Miles-Fritzmather",
     download: false,
+    label: "Miles Fritzmather on GitHub",
   },
   linkedin: {
     icon: FaLinkedin,
     link: "https://www.linkedin.com/in/miles-fritzmather/",
     download: false,
+    label: "Miles Fritzmather on LinkedIn",
   },
   email: {
     icon: FaEnvelope,
     link: "mailto:miles.fritzmather@gmail.com",
     download: false,
+    label: "Email Miles Fritzmather",
   },
-  // discord: {
-  //   icon: FaDiscord,
-  //   link: "https://discord.com/users/FRAGt4g",
-  //   download: false,
-  // },
   resume: {
     icon: FaFileAlt,
-    link: "/Miles Fritzmather Resume.pdf",
+    link: "/Miles Fritzmather's Resume.pdf",
     download: true,
+    label: "Download Miles Fritzmather's resume",
   },
 };
 
@@ -61,8 +61,9 @@ export const AllSocials = ({
                 target="_blank"
                 rel="noopener noreferrer"
                 download={info.download}
+                aria-label={info.label}
               >
-                <info.icon size={40} />
+                <info.icon size={40} aria-hidden />
               </Link>
             </Container>
           </Popup>

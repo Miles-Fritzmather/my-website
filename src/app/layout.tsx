@@ -1,6 +1,14 @@
+import type { Metadata } from "next";
+
+import { PersonJsonLd } from "~/components/seo/JsonLd";
+import {
+  PERSON,
+  SITE_DESCRIPTION,
+  SITE_TITLE,
+  SITE_URL,
+} from "~/lib/site";
 import "~/styles/globals.css";
 
-import { type Metadata } from "next";
 import { Karla } from "next/font/google";
 import BlobBackground from "~/components/BlobBackground";
 import { BackgroundProvider } from "~/providers/BackgroundProvider";
@@ -14,8 +22,61 @@ const karla = Karla({
 });
 
 export const metadata: Metadata = {
-  title: "Miles Fritzmather",
-  description: "Miles Fritzmather's personal website",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: SITE_TITLE,
+    template: `%s | ${PERSON.name}`,
+  },
+  description: SITE_DESCRIPTION,
+  keywords: [
+    "Miles Fritzmather",
+    "UT Austin",
+    "University of Texas at Austin",
+    "Computer Science",
+    "Mathematics",
+    "Longhorn Developers",
+    "Accutime",
+    "software engineer",
+    "software developer",
+  ],
+  authors: [{ name: PERSON.name, url: SITE_URL }],
+  creator: PERSON.name,
+  publisher: PERSON.name,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "profile",
+    locale: "en_US",
+    url: SITE_URL,
+    siteName: PERSON.name,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    firstName: PERSON.givenName,
+    lastName: PERSON.familyName,
+    images: [
+      {
+        url: "/logo.png",
+        width: 512,
+        height: 512,
+        alt: PERSON.name,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: ["/logo.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
   icons: [{ rel: "icon", url: "/logo.png" }],
 };
 
@@ -25,6 +86,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${karla.className} no-scrollbar`}>
+        <PersonJsonLd />
         <PreferencesProvider>
           <BackgroundProvider>
             <BlobBackground />
